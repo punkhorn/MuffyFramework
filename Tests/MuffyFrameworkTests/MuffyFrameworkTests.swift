@@ -1,12 +1,22 @@
 import XCTest
+import SwiftUI
 @testable import MuffyFramework
 
 final class MuffyFrameworkTests: XCTestCase {
+    
+    @State var text: String
+    
+    public init(text: String) {
+        self.text = text
+        super.init()
+    }
+    
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(MuffyFramework().text, "Hello, World!")
+        
+        var body: some View {
+            MuffyFramework.MainTextField(placeholder: "Testing", text: $text)
+            
+        }
     }
 
     static var allTests = [
